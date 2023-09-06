@@ -13,12 +13,12 @@ return(
     </View>
   </SafeAreaView>
    {barcode ?
-   (<View style={{flex: 1,width: '94%',alignSelf: 'center',justifyContent: 'center',alignItems: 'center',backgroundColor: '#eeeeee'}}>
+   (<View style={{flex: 1,width: '90%',alignSelf: 'center',justifyContent: 'center',alignItems: 'center',backgroundColor: '#eeeeee'}}>
       <Text style={{fontSize:20, color:"black"}}>{barcode.data}</Text>
     </View>
     ):(
     <RNCamera
-    style={{ flex: 1, width:'94%', alignItems:'center'}}
+    style={{ flex: 1, alignItems:'center'}}
     onBarCodeRead={setBarcode}
     />
     )}
