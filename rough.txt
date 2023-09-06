@@ -1,0 +1,45 @@
+
+import React, {useState} from "react";
+import { Text, View, SafeAreaView, TouchableOpacity } from "react-native";
+import { RNCamera } from "react-native-camera";
+
+function App () {
+  const [barcode, setBarcode] = useState(null);
+return(<View style={{flex: 1,backgroundColor: '#F2F2FC',}}>
+  <SafeAreaView >
+    <View style={{height: 50,backgroundColor: '#62d1bc',alignItems: 'center',justifyContent: 'center',}}>
+      <Text style={{color: '#ffffff',fontSize: 20,}}>React Native Scanner</Text>
+    </View>
+  </SafeAreaView>
+
+  <View style={{height: 120,justifyContent: 'center',alignItems: 'center',}}>
+    <Text style={{ color: '#121B0D',fontSize: 16,fontWeight: '600'}}>Welcome To React-Native-Camera Tutorial</Text>
+  </View>
+
+  {barcode ? (
+    <View style={{flex: 1,width: '94%',alignSelf: 'center',justifyContent: 'center',alignItems: 'center',backgroundColor: '#eeeeee'}}>
+      <Text style={{ fontSize: 20,color: '#62d1bc'}}>{barcode.data}</Text>
+      <Text style={{ fontSize: 20,color: '#62d1bc'}}>{barcode.type}</Text>
+    </View>
+  ) : (
+    <RNCamera
+      style={{ flex: 1, width: '94%', alignSelf: 'center',}}
+      onBarCodeRead={setBarcode}
+    />
+  )}
+
+  <View style={{height: 180, justifyContent: 'center',alignItems: 'center'}}>
+    <TouchableOpacity style={{width: 240,borderRadius: 4,backgroundColor: '#62d1bc',paddingHorizontal: 24,paddingVertical: 12,marginVertical: 8
+  }} onPress={() => setBarcode(null)}>
+      <Text style={{fontSize: 18,
+    color: '#ffffff',
+    textAlign: 'center'
+  }}>New QR Scan</Text>
+    </TouchableOpacity>
+  </View>
+</View>
+);
+}
+
+
+export default App
