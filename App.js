@@ -19,7 +19,14 @@ return(
     ):(
     <RNCamera
     style={{ flex: 1, alignItems:'center'}}
-    onBarCodeRead={setBarcode}
+    onBarCodeRead={(data) => {
+      if(data.type === "QR_CODE"){
+        console.log(data),
+        setBarcode(data)
+      }else{
+        throw new Error("This is not a QR-CODE");
+      }
+    }}
     />
     )}
     <View style={{height: 180, justifyContent: 'center',alignItems: 'center'}}>
