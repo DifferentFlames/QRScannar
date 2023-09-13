@@ -24,7 +24,7 @@ return(
         console.log(data),
         setBarcode(data)
       }else{
-        throw new Error("This is not a QR-CODE");
+        alert("This is not a QR code")
       }
     }}
     />
